@@ -168,6 +168,21 @@ ExamplePlugin.prototype.disconnect = function () {
 };
 ```
 
+WebVST Generators **MUST** additionally contain `onNoteDown` and `onNoteUp` methods. These methods represents a key being pressed down and up.
+These methods **must** adhere to the following signature
+
+```javascript
+ExampleGenerator.prototype.onNoteDown = function (frequency, timestamp) {
+  // Respond to noteDown event
+};
+
+ExamplePlugin.prototype.onNoteUp = function (frequency, timestamp) {
+  // Respond to noteUp event
+};
+```
+
+Where `frequency` represents the pressed keys frequency in hertz, and timestamp represents the current time at the time of the down or up event, represented in milliseconds since 1st of January 1970 00:00:00 UTC.
+
 ## Contributing
 
 If you have any comments, questions, or suggestions regarding the WebVST spec,
