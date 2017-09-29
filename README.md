@@ -1,6 +1,6 @@
 # WebVST Specification
 
-Current version: *v0.0.1* 
+Current version: *v0.0.1-draft* 
 
 This document defines the requirements that a plugin must meet in order to be compliant and interoperable with other WebVSTs.
 
