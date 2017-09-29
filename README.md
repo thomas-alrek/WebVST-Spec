@@ -1,4 +1,4 @@
-# WebVST Spec
+# WebVST Specification
 
 Current version: *v0.0.1* 
 
