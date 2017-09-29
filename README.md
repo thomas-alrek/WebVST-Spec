@@ -45,7 +45,7 @@ They accept a form of note input (either programatically or via MIDI), and provi
 
 ## Manifest
 
-A WebVST **MUST** have a manifest in it's `package.json` file, in addition to all the properties required by NPM. WebVSTs **MUST** include a `web-vst` property in their `package.json` file -- this property indicates that this is a WebVST. The `web-vst` property **MUST** be an object.
+In addition to all the properties required by NPM, WebVSTs **MUST** include a `web-vst` property in their `package.json` file -- this property indicates that this is a WebVST. The `web-vst` property **MUST** be an object.
 
 ### Properties
 
@@ -113,18 +113,21 @@ const example = new ExamplePlugin(host, {
 
 ## Instance Properties
 
-Every module instance **MUST** have the following properties:
+Every WebVST instance **MUST** have the following properties:
 
 - `input` **MUST** be an [AudioNode](http://www.w3.org/TR/webaudio/#AudioNode-section). This node will accept incoming connections from other AudioNodes for tool and effect components. For source components, this is the generator node.
 - `output` **MUST** be an [AudioNode](http://www.w3.org/TR/webaudio/#AudioNode-section). This node will make all outgoing connections.
 - `meta` **MUST** be an object containing all necessary metadata related to your module. The `meta` object **SHOULD** contain the following properties:
 
   - `name` **SHOULD** represent the display name of your component.
+  - `spec` **SHOULD** represent the spec version the WebVST adheres to. This should be in [semver](http://semver.org/) form as a string.
   - `type` **SHOULD** represent the type of your WebVSTs. **MUST** be one of `effect`, `generator`, or `analyzer`.
   - `properties` if exists, **MUST** be an object listing each of the public, configurable properties of the WebVST. Each property of `properties` **MUST** have a `default` value, and `type`, where `type` is one of `float`, `int`, `bool`, or `enum`. 
   `enum` **MUST** have a `values` array of acceptable values, `float` and `int` types types **MUST** have a `min` and `max` value.
 
-Adherence to the metadata allows other libraries to interact with the WebVST in a consistent way. A WebVST **SHOULD** constrain the setters of the property to be within the defined min and max range, or an acceptable fallback value, and also constrain it to the type.
+Adherence to the metadata allows other WebVSTs and WebVST Hosts to interact with the WebVST in a consistent way. 
+
+A WebVST **SHOULD** constrain the setters of the property to be within the defined min and max range, or an acceptable fallback value, and also constrain it to the type.
 
 ### Demonstration of required metadata
 
@@ -160,7 +163,7 @@ ExamplePlugin.prototype.connect = function (node) {
   this.output.connect(node.input);
 };
 
-ExampleModule.prototype.disconnect = function () {
+ExamplePlugin.prototype.disconnect = function () {
   this.output.disconnect();
 };
 ```
