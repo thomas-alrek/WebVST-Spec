@@ -4,7 +4,7 @@ Current version: *v0.0.1*
 
 This document defines the requirements that a plugin must meet in order to be compliant and interoperable with other WebVSTs.
 
-This spec is a work in progres. Please submit issues and pull requests to provide feedback!
+This specification is a work in progres. Please submit issues and pull requests to provide feedback!
 
 The keywords **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **RECOMMENDED**, **MAY** and **OPTIONAL** in this document are to be interpreted as described in [RFC2119](http://www.ietf.org/rfc/rfc2119.txt)
 
@@ -63,7 +63,7 @@ A WebVST with a invalid or undefined type property may not be able to interface 
 
 #### .version
 
-The spec version the component adheres to **MUST** be listed. This should be in [semver](http://semver.org/) form as a string.
+The specification version the component adheres to **MUST** be listed. This should be in [semver](http://semver.org/) form as a string.
 
 ### Example
 
@@ -120,7 +120,7 @@ Every WebVST instance **MUST** have the following properties:
 - `meta` **MUST** be an object containing all necessary metadata related to your module. The `meta` object **SHOULD** contain the following properties:
 
   - `name` **SHOULD** represent the display name of your component.
-  - `spec` **SHOULD** represent the spec version the WebVST adheres to. This should be in [semver](http://semver.org/) form as a string.
+  - `spec` **SHOULD** represent the specification version the WebVST adheres to. This should be in [semver](http://semver.org/) form as a string.
   - `type` **SHOULD** represent the type of your WebVSTs. **MUST** be one of `effect`, `generator`, or `analyzer`.
   - `properties` if exists, **MUST** be an object listing each of the public, configurable properties of the WebVST. Each property of `properties` **MUST** have a `default` value, and `type`, where `type` is one of `float`, `int`, `bool`, or `enum`. 
   `enum` **MUST** have a `values` array of acceptable values, `float` and `int` types types **MUST** have a `min` and `max` value.
@@ -189,4 +189,7 @@ If you have any comments, questions, or suggestions regarding the WebVST spec,
 [please open an issue](https://github.com/thomas-alrek/webvst-spec/issues) for discussion with the community.
 
 ## Acknowledgement
-This spec is partially based on the previous work of the now inactive [Web Audio Component Spec](https://github.com/web-audio-components/web-audio-components-spec).
+
+This specification is partially based on the previous work of the now inactive [Web Audio Component Spec](https://github.com/web-audio-components/web-audio-components-spec).
+
+This specification is **NOT** affiliated with, funded, or in any way associated with Steinberg GmbH.
